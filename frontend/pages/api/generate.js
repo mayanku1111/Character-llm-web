@@ -14,11 +14,13 @@ export default async function handler(req, res) {
       character,
       message,
       use_fine_tuned,
+    },{
+        timeout: 10000
     });
 
     res.status(200).json({ response: response.data.response });
   } catch (error) {
-    console.error('Error generating AI response:', error);
-    res.status(500).json({ error: 'Error generating AI response.' });
+    console.error('Error generating generate AI response:', error);
+    res.status(500).json({ error: 'Error generating generate AI response.' });
   }
 }
